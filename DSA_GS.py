@@ -9,11 +9,11 @@ def efeito_digitacao(texto, delay=0.1):
     print()
 
 def digitar(texto, delay=0.05):
-        for caractere in texto:
-            sys.stdout.write(caractere)
-            sys.stdout.flush()
-            time.sleep(delay)
-        print()
+    for caractere in texto:
+        sys.stdout.write(caractere)
+        sys.stdout.flush()
+        time.sleep(delay)
+    print()
 
 historico = []
 
@@ -25,7 +25,7 @@ def inserir_dados():
     temperatura = float(input("Digite a temperatura da nave: "))
     print()
 
-    energia = float(input("Digite o nível de energia da nave: "))
+    energia = float(input("Digite o nível de energia da nave em %: "))
     print()
 
     comunicacao = int(input("""
@@ -50,7 +50,7 @@ def visualizar_status(temperatura, energia, comunicacao):
 
     efeito_digitacao("STATUS ATUAL DA NAVE")
     print(f"Temperatura: {temperatura}")
-    print(f"Nível de energia: {energia}")
+    print(f"Nível de energia: {energia}%")
 
     if comunicacao == 0:
         print("Comunicação: Afetada")
@@ -76,13 +76,12 @@ def executar_analise(temperatura, energia, comunicacao):
         digitar("Temperatura normal")
     print()
 
-
     print("Energia:")
     if energia <= 10:
         digitar("Nível de energia crítico")
     elif energia <= 20:
         digitar("Economia de energia")
-    elif nivel_energia >= 21:
+    else:
         digitar("Energia Estável")
     print()
 
@@ -107,7 +106,7 @@ def mostrar_historico():
 
         print(f"Leitura {i + 1}:")
         print(f"Temperatura: {temperatura}")
-        print(f"Energia: {energia}")
+        print(f"Energia: {energia}%")
 
         if comunicacao == 0:
             print("Comunicação: Afetada")
@@ -145,4 +144,3 @@ while True:
 
     else:
         print("Opção inválida. Tente novamente.")
-
